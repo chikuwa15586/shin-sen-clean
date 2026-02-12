@@ -1,24 +1,19 @@
-# README
+# Shin Sen Clean
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+1日1回引ける神ガチャアプリ
 
-Things you may want to cover:
+## 機能
+- Devise認証
+- 1日1回神籤
+- 演出付き結果表示
 
-* Ruby version
+## 技術構成
+- Ruby on Rails 7
+- Devise
+- SQLite（開発環境）
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 今後の予定
+- 確率ロジック強化
+- レア演出追加
+- UI改善
