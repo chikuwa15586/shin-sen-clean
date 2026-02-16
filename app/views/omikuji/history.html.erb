@@ -1,0 +1,29 @@
+<h1 class="history-title">神籤履歴</h1>
+
+<div class="history-container">
+  <% if @results.any? %>
+    <% @results.each do |result| %>
+      <div class="history-card rarity-<%= result.rarity %>">
+
+        <div class="history-date">
+          <%= result.created_at.strftime("%m月%d日") %>
+        </div>
+
+        <div class="history-image">
+          <%= image_tag result.image, width: 80 %>
+        </div>
+
+        <div class="history-result">
+          <%= result.result %>
+        </div>
+
+      </div>
+    <% end %>
+  <% else %>
+    <p class="no-history">まだ履歴がありません</p>
+  <% end %>
+</div>
+
+<div class="history-back">
+  <%= link_to "トップへ戻る", root_path %>
+</div>
