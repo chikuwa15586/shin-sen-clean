@@ -6,78 +6,33 @@
     ※ 神籤は1日1回のみ引くことができます
   </p>
 
-  <!-- 神籤カード（タップで開く） -->
-  <div id="omikuji-card"
-       style="cursor:pointer;
-              text-align:center;
-              margin:2rem auto;
-              font-size:1.5rem;
-              border:2px dashed #ccc;
-              padding:2rem;
-              border-radius:10px;
-              max-width:400px;">
+  <!-- 神籤カード -->
+  <div id="omikuji-card" class="omikuji-card">
     ✨ タップして神籤を開く ✨
   </div>
 
   <!-- 結果表示 -->
   <div id="omikuji-result"
-       style="display:none;
-              text-align:center;
-              margin-top:2rem;">
+       class="fortune-result rarity-<%= @result.rarity %>"
+       data-rarity="<%= @result.rarity %>"
+       style="display:none;">
 
-    <p id="omikuji-name"
-       style="font-size: 1.8rem; margin-bottom:1rem;">
+    <div class="god-light"></div>
+    
+    <p id="omikuji-name" class="fortune-text">
       <strong><%= @result.result %></strong>
     </p>
 
     <%= image_tag @result.image,
                   id: "omikuji-image",
-                  style: "max-width:220px; border-radius:10px;" %>
+                  class: "character-image" %>
+
   </div>
 
   <!-- トップへ戻る -->
   <div style="text-align:center; margin-top:3rem;">
     <%= link_to "トップページへ", root_path, class: "btn btn-primary" %>
   </div>
-
-  <!-- 演出JS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const card = document.getElementById("omikuji-card");
-      const resultDiv = document.getElementById("omikuji-result");
-      const nameEl = document.getElementById("omikuji-name");
-      const imageEl = document.getElementById("omikuji-image");
-
-      card.addEventListener("click", () => {
-
-        // カード非表示
-        card.style.display = "none";
-
-        // 結果表示
-        resultDiv.style.display = "block";
-
-        // SE再生（public/sounds/chime.mp3）
-        const audio = new Audio("/sounds/chime.mp3");
-        audio.play();
-
-        const resultName = "<%= @result.result %>";
-
-        // 神吉だけ特別演出
-        if(resultName === "神吉") {
-
-          nameEl.style.fontSize = "3rem";
-          nameEl.style.color = "gold";
-          nameEl.style.textShadow = "0 0 20px gold";
-
-          imageEl.style.transform = "scale(1.6)";
-          imageEl.style.transition = "transform 1.2s ease";
-          imageEl.style.boxShadow = "0 0 40px gold";
-
-          document.body.style.backgroundColor = "#111";
-        }
-      });
-    });
-  </script>
 
 <% else %>
 

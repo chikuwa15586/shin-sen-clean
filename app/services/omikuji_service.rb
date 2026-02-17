@@ -1,12 +1,12 @@
 class OmikujiService
   RESULTS = [
-    { name: "神吉", image: "zeus.png",      rarity: "god",        weight: 5 },
-    { name: "大吉", image: "hera.png",      rarity: "super_rare", weight: 10 },
-    { name: "吉",   image: "poseidon.png",  rarity: "normal",     weight: 15 },
-    { name: "中吉", image: "athena.png",    rarity: "normal",     weight: 25 },
-    { name: "小吉", image: "apollo.png",    rarity: "normal",     weight: 25 },
-    { name: "末吉", image: "aphrodite.png", rarity: "normal",     weight: 15 },
-    { name: "凶",   image: "eris.png",      rarity: "bad",        weight: 5 }
+    { name: "神吉", image: "zeus.png",      rarity: "god",        weight: 1 },
+    { name: "大吉", image: "hera.png",      rarity: "super_rare", weight: 1 },
+    { name: "吉",   image: "poseidon.png",  rarity: "normal",     weight: 1 },
+    { name: "中吉", image: "athena.png",    rarity: "normal",     weight: 2 },
+    { name: "小吉", image: "apollo.png",    rarity: "normal",     weight: 90 },
+    { name: "末吉", image: "aphrodite.png", rarity: "normal",     weight: 1 },
+    { name: "凶",   image: "eris.png",      rarity: "bad",        weight: 3 }
   ].freeze
 
   def self.draw
@@ -18,6 +18,6 @@ class OmikujiService
       return r if point < 0
     end
 
-    RESULTS.last # 念のため保険
+    RESULTS.last # 万が一の保険
   end
 end
