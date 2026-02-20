@@ -1,10 +1,9 @@
 /*
- *= require_tree .
  *= require_self
  */
 
 /* =========================
-   🌌 Myth Fantasy Background
+   🌌 Background
 ========================= */
 
 body {
@@ -13,8 +12,10 @@ body {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
   min-height: 100vh;
   position: relative;
-  background: black;
+  background: transparent;
   overflow-x: hidden;
+  padding-top: 80px;
+  overflow: hidden;
 }
 
 /* 背景レイヤー */
@@ -23,63 +24,20 @@ body::before {
   position: fixed;
   inset: 0;
   background: url("myth_bg.png") center center / cover no-repeat;
-  opacity: 0.40;   /* ← 薄さ調整 */
+  opacity: 0.30;   /* ← 薄さ調整 */
   z-index: -1;
-}
-
-@keyframes divineGlow {
-  0% { opacity: 0.40; }
-  50% { opacity: 0.80; }
-  100% { opacity: 0.40; }
-}
-
-body::before {
   animation: divineGlow 8s ease-in-out infinite;
 }
 
-/* メインカード */
-.main-card {
-  max-width: 460px;
-  margin: 6rem auto;
-  padding: 3rem;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(6px);
-  border-radius: 24px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-  text-align: center;
+@keyframes divineGlow {
+  0% { opacity: 0.30; }
+  50% { opacity: 0.60; }
+  100% { opacity: 0.30; }
 }
 
-/* タイトルを神話風に */
-.main-card h1 {
-  font-size: 2.2rem;
-  letter-spacing: 0.15em;
-  color: #b8860b;
-  text-shadow: 0 0 15px rgba(255,215,0,0.6);
-}
-
-//* =========================
-   🌍 Global Design Base
+/* =========================
+   🌍 Global UI
 ========================= */
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-  background: radial-gradient(circle at top, #fff8dc, #f5deb3);
-  min-height: 100vh;
-}
-
-/* 中央カードレイアウト */
-.main-card {
-  max-width: 420px;
-  margin: 5rem auto;
-  padding: 2.5rem;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
 /* 共通ボタン */
 .btn {
   display: inline-block;
@@ -103,4 +61,63 @@ body {
 .btn-secondary {
   background: #eee;
   color: #333;
+}
+
+/* =========================
+   🧭 Navbar
+========================= */
+.navbar {
+  width: 100%;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: bold;
+  color: gold;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* =========================
+   🔐 Devise Visibility Fix
+========================= */
+
+.page-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(240, 240, 240, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* deviseリンクを見やすく */
+.page-container a {
+  color: #333;
+  font-weight: 500;
+}
+
+.page-container h2 {
+  text-align: center;
 }

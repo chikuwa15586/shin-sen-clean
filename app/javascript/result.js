@@ -12,6 +12,9 @@ document.addEventListener("turbo:load", function() {
     card.style.display = "none";
     resultDiv.style.display = "block";
 
+    // 再描画強制
+    resultDiv.offsetHeight;
+
     if (rarity === "god") {
 
       setTimeout(() => {
@@ -53,5 +56,28 @@ document.addEventListener("turbo:load", function() {
     }
 
   });
+
+});
+
+
+// Turboキャッシュ対策（← これは外に書く）
+document.addEventListener("turbo:before-cache", () => {
+
+  const resultDiv = document.getElementById("omikuji-result");
+  const card = document.getElementById("omikuji-card");
+
+  if (!resultDiv || !card) return;
+
+  resultDiv.classList.remove(
+    "animation-god",
+    "animation-super",
+    "animation-normal",
+    "animation-bad",
+    "bad-flash",
+    "normal-flash"
+  );
+
+  resultDiv.style.display = "none";
+  card.style.display = "block";
 
 });

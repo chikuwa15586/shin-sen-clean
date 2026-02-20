@@ -1,9 +1,9 @@
-<h1 class="history-title">神籤履歴</h1>
+<h1 style="text-align:center;">神籤の履歴</h1>
 
-<div class="history-container">
+<div class="page-container history-page">
   <% if @results.any? %>
     <% @results.each do |result| %>
-      <div class="history-card rarity-<%= result.rarity %>">
+      <div class="history-card %>">
 
         <div class="history-date">
           <%= result.created_at.strftime("%m月%d日") %>
@@ -25,5 +25,5 @@
 </div>
 
 <div class="history-back">
-  <%= link_to "トップへ戻る", root_path %>
+  <%= link_to "トップへ戻る", root_path, class: "btn btn-primary" %>
 </div>

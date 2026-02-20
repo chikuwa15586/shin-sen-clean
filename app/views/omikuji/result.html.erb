@@ -1,43 +1,43 @@
 <% if @result.present? %>
 
-  <h1 style="text-align:center;">神籤の結果</h1>
-
-  <p style="text-align:center; margin-top:0.5rem; color:#666;">
-    ※ 神籤は1日1回のみ引くことができます
-  </p>
-
   <!-- 神籤カード -->
-  <div id="omikuji-card" class="omikuji-card">
-    ✨ タップして神籤を開く ✨
+  <div class="card-wrapper">
+    <button id="omikuji-card" class="omikuji-card">
+      ✨ タップして神籤を開く ✨
+    </button>
   </div>
 
   <!-- 結果表示 -->
   <div id="omikuji-result"
-       class="fortune-result rarity-<%= @result.rarity %>"
-       data-rarity="<%= @result.rarity %>"
-       style="display:none;">
+      class="fortune-result rarity-<%= @result.rarity %>"
+      data-rarity="<%= @result.rarity %>"
+      style="display:none;">
 
-    <div class="god-light"></div>
+      <h1 style="text-align:center;">神籤の結果</h1>
+      
+      <p class="rarity-message">
+        <%= @result[:message] %>
+      </p>
     
-    <p id="omikuji-name" class="fortune-text">
-      <strong><%= @result.result %></strong>
-    </p>
+      <div class="god-light"></div>
 
     <%= image_tag @result.image,
                   id: "omikuji-image",
                   class: "character-image" %>
 
-  </div>
+    <p style="text-align:center; margin-top:1.5rem; color:#700;">
+    ※ 神籤は1日1回のみ引くことができます
+    </p>
 
-  <!-- トップへ戻る -->
-  <div style="text-align:center; margin-top:3rem;">
+    <div class="result-buttons">
     <%= link_to "トップページへ", root_path, class: "btn btn-primary" %>
+    </div>
   </div>
-
+  
 <% else %>
 
-  <div style="text-align:center; margin-top:2rem;">
-    <p style="color:red;">
+  <div class="result-buttons">
+    <p class="error-text">
       本日はまだ神籤を引いていません。
     </p>
 

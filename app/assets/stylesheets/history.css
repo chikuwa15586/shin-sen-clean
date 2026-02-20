@@ -1,0 +1,58 @@
+/* =========================
+   📜 HISTORY PAGE
+========================= */
+
+.history-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  border-radius: 20px;
+}
+
+.history-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.history-item {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: space-between;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-date {
+  opacity: 0.7;
+}
+
+.history-card {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* =========================
+   📱 SMARTPHONE HISTORY
+========================= */
+
+@media (max-width: 768px) {
+
+  .history-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .history-item {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+.history-page {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
