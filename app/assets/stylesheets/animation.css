@@ -1,0 +1,324 @@
+/* =========================
+    アニメーション
+========================= */
+
+.fortune-result::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  z-index: 1;
+}
+
+.show::before {
+  animation: ring-expand 0.6s ease-out forwards;
+}
+
+@keyframes ring-expand {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+}
+
+/* ===== 神吉専用演出 ===== */
+
+.animation-god {
+  overflow: hidden;
+}
+
+/* キャラ */
+.animation-god .character-image {
+  max-width: 420px;          /* 枠内最大サイズ */
+  opacity: 0;
+  transform: scale(0.8);
+  animation: god-materialize 2.2s ease-out forwards;
+  filter: drop-shadow(0 0 40px gold);
+}
+
+/* タイトル */
+.animation-god .fortune-text {
+  opacity: 0;
+  animation: god-text 2s ease forwards;
+  font-size: 3.2rem;
+  color: gold;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 20px gold,
+    0 0 40px orange;
+}
+
+.animation-god::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #fff5cc, #111);
+  z-index: 0;
+}
+
+/* ゆっくり実体化 */
+@keyframes god-materialize {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(40px);
+    filter: blur(8px) brightness(1.5);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(2px) brightness(1.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.15) translateY(0);
+    filter: blur(0) brightness(1);
+  }
+}
+
+/* テキスト演出 */
+@keyframes god-text {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.god-light {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,215,0,0.7) 30%,
+    rgba(255,255,255,0.3) 60%,
+    transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.animation-god .god-light {
+  animation: god-flash 1s ease-out forwards;
+}
+
+@keyframes god-flash {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
+}
+
+/* ===== 大吉演出 ===== */
+
+.animation-super {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景演出を疑似要素へ */
+.animation-super::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at center, #ff4500, #111);
+  animation: super-bg-flash 0.6s ease-out forwards;
+}
+
+/* キャラを前面へ */
+.animation-super .character-image {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  animation: super-character-rise 0.8s ease-out 0.2s forwards;
+  filter: drop-shadow(0 0 20px red);
+}
+
+/* キラキラ */
+.animation-super::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(circle, rgba(255,215,0,0.8) 2px, transparent 2px);
+  background-size: 40px 40px;
+  animation: sparkle 1.2s linear infinite;
+  opacity: 0.4;
+}
+
+/* 背景フラッシュ */
+@keyframes super-bg-flash {
+  0%   { background: radial-gradient(circle, #fff9c4 0%, #ffffff 100%); }
+  50%  { background: radial-gradient(circle, #ffe082 0%, #ffffff 100%); }
+  100% { background: #ffffff; }
+}
+
+@keyframes super-character-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sparkle {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 40px; }
+}
+
+/* ===== 通常演出 ===== */
+
+.animation-normal {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景レイヤー */
+.animation-normal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at center,
+              #e6f7ff 0%,
+              #d4f0ff 50%,
+              #ffffff 100%);
+}
+
+/* 光演出レイヤー */
+.animation-normal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle,
+              rgba(255,255,255,0.8) 0%,
+              transparent 70%);
+  animation: normal-glow 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+/* キャラを最前面へ */
+.animation-normal .character-image {
+  position: relative;
+  z-index: 2;
+  animation: normal-pop 0.4s ease-out forwards;
+}
+
+@keyframes normal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes normal-glow {
+  from {
+    opacity: 1;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+/* ===== BAD：呪い演出 ===== */
+
+.animation-bad {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景 */
+.animation-bad::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at center,
+              #1a0000 0%,
+              #000000 60%,
+              #000000 100%);
+}
+
+/* 揺らぎ */
+.animation-bad::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle,
+              rgba(120,0,0,0.6) 0%,
+              rgba(60,0,60,0.4) 40%,
+              transparent 70%);
+  animation: bad-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ノイズを分離 */
+.animation-bad .noise-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* キャラを最前面 */
+.animation-bad .character-image {
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  transform: scale(0.7);
+  animation: bad-emerge 2.5s ease-out forwards;
+}
+
+@keyframes bad-emerge {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(6px);
+  }
+  40% {
+    opacity: 0.3;
+    transform: scale(0.8);
+    filter: blur(3px);
+  }
+  70% {
+    opacity: 0.7;
+    transform: scale(0.95);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.fortune-result::before,
+.fortune-result::after,
+.animation-super::after,
+.animation-bad::before,
+.animation-bad::after,
+.animation-normal::before,
+.god-light {
+  pointer-events: none;
+}

@@ -14,7 +14,8 @@ class OmikujiController < ApplicationController
       current_user.omikuji_results.create!(
         result: result[:name],
         image: result[:image],
-        rarity: result[:rarity]
+        rarity: result[:rarity],
+        message: result[:message]
       )
 
       redirect_to result_omikuji_path

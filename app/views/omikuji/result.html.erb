@@ -16,7 +16,7 @@
       <h1 style="text-align:center;">神籤の結果</h1>
       
       <p class="rarity-message">
-        <%= @result[:message] %>
+        <%= @result.message %>
       </p>
     
       <div class="god-light"></div>
@@ -41,7 +41,7 @@
       本日はまだ神籤を引いていません。
     </p>
 
-    <%= link_to "トップページへ戻る", root_path, class: "btn btn-secondary" %>
+    <%= link_to "トップページへ", root_path, class: "btn btn-secondary" %>
   </div>
 
 <% end %>

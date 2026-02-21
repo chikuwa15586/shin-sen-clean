@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_15_234855) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_21_134634) do
   create_table "omikuji_results", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "image", null: false
+    t.string "message"
     t.string "rarity"
     t.string "result", null: false
     t.datetime "updated_at", null: false
