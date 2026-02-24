@@ -5,6 +5,7 @@
 .main-card {
   max-width: 460px;
   margin: 6rem auto;
+  margin-top: 18rem;
   padding: 3rem;
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(6px);
@@ -18,7 +19,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 .fortune-result {
@@ -38,11 +39,17 @@
   align-items: center;
 }
 
+.result-buttons {
+  text-align: center;
+  margin: 2rem 0;
+}
+
 /* =========================
    コンポーネント
 ========================= */
 
 .omikuji-card {
+  margin-top: 20rem;
   font-size: 1.3rem;
   width: auto;
   padding: 1.4rem 3rem;
@@ -167,8 +174,13 @@
   .main-card {
     width: 70%;
     margin: 2rem auto;
+    margin-top: 13rem;
     padding: 1rem;
     border-radius: 18px;
+  }
+
+  .omikuji-card {
+    margin-top: 13rem;
   }
 
   .main-card h1 {
@@ -210,5 +222,4 @@
     object-fit: contain;
   }
 
-  
 }

@@ -14,6 +14,9 @@ document.addEventListener("turbo:load", function() {
     card.style.display = "none";
     resultDiv.style.display = "block";
 
+    const buttons = document.querySelector(".result-buttons");
+    if (buttons) buttons.style.display = "block";
+
     // 再描画強制
     resultDiv.offsetHeight;
 
