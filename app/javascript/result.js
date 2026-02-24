@@ -7,6 +7,8 @@ document.addEventListener("turbo:load", function() {
 
   const rarity = resultDiv.dataset.rarity;
 
+  card.onclick = null; // ← 初期化
+
   card.addEventListener("click", () => {
 
     card.style.display = "none";

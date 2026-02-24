@@ -1,6 +1,11 @@
 /* =========================
-   📜 HISTORY PAGE
+   📜 神籤の履歴
 ========================= */
+
+.history-title {
+  text-align: center;
+  margin: 1.5rem 0;
+}
 
 .history-container {
   max-width: 800px;
@@ -15,44 +20,67 @@
   margin-bottom: 1.5rem;
 }
 
-.history-item {
-  padding: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  display: flex;
-  justify-content: space-between;
+.history-card {
+  background: rgba(247, 246, 190, 0.85);
+  padding: 1.2rem;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(8, 44, 247, 0.15);
 }
 
-.history-item:last-child {
-  border-bottom: none;
+.history-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.history-image img {
+  display: block;
+}
+
+/* ===== 右側情報 ===== */
+.history-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .history-date {
   opacity: 0.7;
 }
 
-.history-card {
-  background: transparent !important;
-  border: none !important;
+.history-back {
+  text-align: center;
+  margin: 2rem 0;
 }
 
 /* =========================
-   📱 SMARTPHONE HISTORY
+   📱 レスポンシブデザイン
 ========================= */
 
 @media (max-width: 768px) {
 
+  .page-title {
+    font-size: 1.5rem;
+  }  
+
   .history-container {
-    margin: 1rem;
+    margin: 2rem auto;
+    max-width: 600px;
     padding: 1rem;
   }
 
-  .history-item {
-    flex-direction: column;
-    gap: 0.3rem;
+  .history-page {
+    padding: 2rem 1rem;
+    overflow-y: auto;
   }
-}
 
-.history-page {
-  height: calc(100vh - 100px);
-  overflow-y: auto;
+  .history-back {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .history-back .btn {
+    width: 30%;
+  }
 }

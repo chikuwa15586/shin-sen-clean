@@ -1,5 +1,5 @@
 /* =========================
-   🌌 Background
+   🌌 背景
 ========================= */
 
 body {
@@ -32,9 +32,17 @@ body::before {
 }
 
 /* =========================
-   🌍 Global UI
+   🌍 共通
 ========================= */
-/* 共通ボタン */
+
+/* ===== ページ共通タイトル ===== */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem;
+}
+
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
@@ -60,7 +68,7 @@ body::before {
 }
 
 /* =========================
-   🧭 Navbar
+   🧭 ナビバー
 ========================= */
 .navbar {
   width: 100%;

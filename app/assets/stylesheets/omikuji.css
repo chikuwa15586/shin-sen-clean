@@ -68,9 +68,9 @@
   position: relative;
   z-index: 2;
 
-  margin: 1rem 0 1.5rem;
+  margin: 1rem 0 1.8rem;
 
-  font-size: 2.5rem;   /* 少し大きめ */
+  font-size: 2.0rem;   /* 少し大きめ */
   font-weight: 1000;     /* 少し太め */
   letter-spacing: 0.05em;
   line-height: 1.6;
@@ -110,7 +110,7 @@
 .notice-text {
   text-align: center;
   margin-top: 1.5rem;
-  color: #700;
+  color: rgba(8, 0, 0, 1);
 }
 
 /* =========================
@@ -118,6 +118,51 @@
 ========================= */
 
 @media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .navbar .right-area {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .navbar a,
+  .navbar span {
+    font-size: 0.9rem;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-user {
+    text-align: center;
+    word-break: break-all;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
 
   .main-card {
     width: 70%;
@@ -137,18 +182,33 @@
   .fortune-result {
     min-height: auto;
     height: auto;
-    padding-top: 0.5rem;
+    padding-top: 0.1rem;
   }
 
-  .character-image {
-    width: 100%;
-    max-height: 40vh;
-    object-fit: contain;
+  .fortune-result h1 {
+    margin-top: 0rem;
+    margin-bottom:0.3rem;
+    font-size: 1.4rem;
   }
 
   .fortune-text {
     font-size: 1.6rem;
   }
+
+  .rarity-message {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    text-shadow:
+    0 0 6px rgba(255,255,255,0.6),
+    0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+  .character-image {
+    width: 100%;
+    max-height: 38vh;
+    object-fit: contain;
+  }
+
+  
 }
-
-

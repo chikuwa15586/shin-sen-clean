@@ -1,23 +1,31 @@
-<h1 style="text-align:center;">神籤の履歴</h1>
+<h1 class="page-title">神籤の履歴</h1>
 
 <div class="page-container history-page">
   <% if @results.any? %>
     <% @results.each do |result| %>
-      <div class="history-card %>">
 
-        <div class="history-date">
-          <%= result.created_at.strftime("%m月%d日") %>
-        </div>
+      <div class="history-card">
 
-        <div class="history-image">
-          <%= image_tag result.image, width: 80 %>
-        </div>
+        <div class="history-row">
 
-        <div class="history-result">
-          <%= result.result %>
+          <div class="history-image">
+            <%= image_tag result.image, width: 90 %>
+          </div>
+
+          <div class="history-info">
+            <div class="history-date">
+              <%= result.created_at.strftime("%m月%d日") %>
+            </div>
+
+            <div class="history-result">
+              <%= result.result %>
+            </div>
+          </div>
+
         </div>
 
       </div>
+
     <% end %>
   <% else %>
     <p class="no-history">まだ履歴がありません</p>
