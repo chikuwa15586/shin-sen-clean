@@ -1,0 +1,86 @@
+/* =========================
+   📜 神籤の履歴
+========================= */
+
+.history-title {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.history-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  border-radius: 20px;
+}
+
+.history-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.history-card {
+  background: rgba(247, 246, 190, 0.85);
+  padding: 1.2rem;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(8, 44, 247, 0.15);
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.history-image img {
+  display: block;
+}
+
+/* ===== 右側情報 ===== */
+.history-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.history-date {
+  opacity: 0.7;
+}
+
+.history-back {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* =========================
+   📱 レスポンシブデザイン
+========================= */
+
+@media (max-width: 768px) {
+
+  .page-title {
+    font-size: 1.5rem;
+  }  
+
+  .history-container {
+    margin: 2rem auto;
+    max-width: 600px;
+    padding: 1rem;
+  }
+
+  .history-page {
+    padding: 2rem 1rem;
+    overflow-y: auto;
+  }
+
+  .history-back {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .history-back .btn {
+    width: 30%;
+  }
+}

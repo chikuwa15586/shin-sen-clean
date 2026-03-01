@@ -1,10 +1,127 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* =========================
+   🌌 背景
+========================= */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  min-height: 100vh;
+  position: relative;
+  background: transparent;
+  overflow-x: hidden;
+  padding-top: 80px;
+
+}
+
+/* 背景レイヤー */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("myth_bg.png") center center / cover no-repeat;
+  opacity: 0.60;   /* ← 薄さ調整 */
+  z-index: -1;
+  animation: divineGlow 8s ease-in-out infinite;
+}
+
+@keyframes divineGlow {
+  0% { opacity: 0.60; }
+  50% { opacity: 0.90; }
+  100% { opacity: 0.60; }
+}
+
+/* =========================
+   🌍 共通
+========================= */
+
+/* ===== ページ共通タイトル ===== */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffb74d, #ff9800);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+  background: #eee;
+  color: #333;
+}
+
+/* =========================
+   🧭 ナビバー
+========================= */
+.navbar {
+  width: 100%;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: bold;
+  color: gold;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* =========================
+   🔐 Devise Visibility Fix
+========================= */
+
+.page-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(240, 240, 240, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* deviseリンクを見やすく */
+.page-container a {
+  color: #333;
+  font-weight: 500;
+}
+
+.page-container h2 {
+  text-align: center;
+}
