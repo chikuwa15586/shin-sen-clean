@@ -51,7 +51,6 @@ class OmikujiService
     }
   ].freeze
 
-
   def self.draw
     total = RESULTS.sum { |r| r[:weight] }
     point = rand(total)
