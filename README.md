@@ -1,6 +1,9 @@
 ## 画面遷移図
 FigmaURL https://www.figma.com/design/MWeS6nG6b7eQuNMSXOedjw/SHIN-SEN?node-id=0-1&t=MOnDfc1vGd75UFqg-1
 
+## ER図
+https://gyazo.com/7c2381dc6f10a1873ebfdd2cca6e23a9
+
 ## 神籤 - SHIN SEN -
 ___
 ## 1. サービス概要
