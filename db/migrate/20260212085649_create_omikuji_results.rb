@@ -1,4 +1,3 @@
-# db/migrate/xxxx_create_omikuji_results.rb
 class CreateOmikujiResults < ActiveRecord::Migration[8.1]
   def change
     create_table :omikuji_results do |t|
