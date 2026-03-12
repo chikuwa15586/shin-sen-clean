@@ -43,6 +43,23 @@ body::before {
   margin: 1.5rem 0 1rem;
 }
 
+.top-card{
+  background: rgba(255,255,255,0.85);
+  padding:10px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  max-width:500px;
+  margin:0 auto;
+}
+
+.top-buttons{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+  margin-top:40px;   /* ← これ追加 */
+}
+
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
@@ -55,6 +72,8 @@ body::before {
 .btn-primary {
   background: linear-gradient(135deg, #ffb74d, #ff9800);
   color: white;
+  font-size: 18px;
+  padding: 14px 34px;
 }
 
 .btn-primary:hover {
@@ -63,10 +82,30 @@ body::before {
 }
 
 .btn-secondary {
-  background: #eee;
+  background: white;
   color: #333;
+  border: 2px solid #333;
+  font-size: 18px;
+  padding: 14px 34px;
 }
 
+.top-container{
+  text-align:center;
+  padding-top:100px;
+  max-width:700px;
+  margin:0 auto;
+}
+
+.top-container h1{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.top-container p{
+  font-size:18px;
+  margin-bottom:30px;
+  line-height:1.8;
+}
 /* =========================
    🧭 ナビバー
 ========================= */

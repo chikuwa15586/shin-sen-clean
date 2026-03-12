@@ -1,0 +1,30 @@
+<div class="top-container">
+
+  <h1>神籤 - SHIN SEN -</h1>
+
+  <div class="top-card">
+
+    <p>今日の行動を変える神籤アプリ</p>
+
+    <p>１日１回だけ神籤を引き、<br>
+    小さな「行動タスク」を受け取る</p>
+
+    <p>未来を占うのではなく、<br>
+    行動を変えるおみくじアプリです。</p>
+
+  </div>
+
+  <div class="top-buttons">
+    <% if user_signed_in? %>
+
+      <%= link_to "神籤を引く", draw_omikuji_path, class: "btn btn-primary" %>
+
+    <% else %>
+
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary" %>
+
+    <% end %>
+  </div>
+
+</div>
