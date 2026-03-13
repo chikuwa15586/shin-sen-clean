@@ -9,19 +9,19 @@
 
   <!-- 結果表示 -->
   <div id="omikuji-result"
-      class="fortune-result rarity-<%= @result.rarity %>"
-      data-rarity="<%= @result.rarity %>"
+      class="fortune-result rarity-<%= @result.fortune.rarity %>"
+      data-rarity="<%= @result.fortune.rarity %>"
       style="display:none;">
 
       <h1 class="page-title">神籤の結果</h1>
       
       <p class="rarity-message">
-        <%= @result.message %>
+        <%= @result.fortune.message %>
       </p>
     
       <div class="god-light"></div>
 
-    <%= image_tag @result.image,
+    <%= image_tag @result.fortune.image,
                   id: "omikuji-image",
                   class: "character-image" %>
 
