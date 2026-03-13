@@ -9,13 +9,10 @@ class OmikujisController < ApplicationController
     if today_result
       redirect_to result_omikuji_path
     else
-      result = OmikujiService.draw
+      fortune = OmikujiService.draw  # 確率抽選
 
-      current_user.omikuji_results.create!(
-        result: result[:name],
-        image: result[:image],
-        rarity: result[:rarity],
-        message: result[:message]
+      current_user.omikuji_results.create!(  # DB保存
+        fortune: fortune
       )
 
       redirect_to result_omikuji_path

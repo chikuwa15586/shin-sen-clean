@@ -10,15 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_21_134634) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_13_080039) do
+  create_table "fortunes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "image"
+    t.string "message"
+    t.string "name"
+    t.integer "probability"
+    t.string "rarity"
+    t.datetime "updated_at", null: false
+  end
+
   create_table "omikuji_results", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.string "image", null: false
-    t.string "message"
-    t.string "rarity"
-    t.string "result", null: false
+    t.integer "fortune_id", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.index ["fortune_id"], name: "index_omikuji_results_on_fortune_id"
     t.index ["user_id"], name: "index_omikuji_results_on_user_id"
   end
 
@@ -34,5 +42,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_21_134634) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "omikuji_results", "fortunes"
   add_foreign_key "omikuji_results", "users"
 end
