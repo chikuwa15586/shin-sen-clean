@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resource :omikuji, only: [] do
     get :draw
     get :result
-    get :history
   end
 
   resources :omikuji_results, only: [:index]
