@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_13_131046) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_14_023930) do
   create_table "fortunes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "image"
@@ -28,6 +28,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_13_131046) do
     t.integer "user_id", null: false
     t.index ["fortune_id"], name: "index_omikuji_results_on_fortune_id"
     t.index ["user_id"], name: "index_omikuji_results_on_user_id"
+  end
+
+  create_table "task_completions", force: :cascade do |t|
+    t.boolean "completed", default: false, null: false
+    t.datetime "created_at", null: false
+    t.integer "omikuji_result_id", null: false
+    t.integer "task_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["omikuji_result_id"], name: "index_task_completions_on_omikuji_result_id"
+    t.index ["task_id"], name: "index_task_completions_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -51,4 +61,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_13_131046) do
 
   add_foreign_key "omikuji_results", "fortunes"
   add_foreign_key "omikuji_results", "users"
+  add_foreign_key "task_completions", "omikuji_results"
+  add_foreign_key "task_completions", "tasks"
 end

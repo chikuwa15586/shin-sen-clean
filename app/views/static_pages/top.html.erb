@@ -17,7 +17,7 @@
   <div class="top-buttons">
     <% if user_signed_in? %>
 
-      <%= link_to "神籤を引く", draw_omikuji_path, class: "btn btn-primary" %>
+      <%= button_to "神籤を引く", draw_omikuji_path, method: :post, class: "btn btn-primary" %>
 
     <% else %>
 

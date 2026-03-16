@@ -1,0 +1,49 @@
+<p class="drawn-text">
+  今日の運勢を授かりました
+</p>
+
+<div class="main-card">
+
+  <h3 class="fortune-title">～神籤の結果～</h3>
+
+  <div class="fortune-image">
+    <%= image_tag @today_result.fortune.image, width: 200 %>
+  </div>
+
+
+  <h3 class="mission-title">🌠星の導き</h3>
+
+  <% @today_result.task_completions.each do |tc| %>
+
+    <div class="mission-box">
+
+      <%= form_with model: tc,
+          url: task_completion_path(tc),
+          method: :patch,
+          local: true do |f| %>
+
+        <%= f.check_box :completed,
+            checked: tc.completed,
+            onchange: "this.form.submit();" %>
+
+        <span class="task-title">
+          <%= tc.task.title %>
+        </span>
+
+        <p class="task-content">
+          <%= tc.task.content %>
+        </p>
+
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>
+
+<div class="history-button">
+  <%= link_to "神籤履歴を見る",
+      history_omikuji_path,
+      class: "btn btn-secondary" %>
+</div>

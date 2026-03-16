@@ -41,6 +41,7 @@
 /* ===== 右側情報 ===== */
 .history-info {
   display: flex;
+  font-size:1.2rem;
   flex-direction: column;
   gap: 0.4rem;
 }
