@@ -7,13 +7,25 @@ class OmikujisController < ApplicationController
                                .first
 
     if today_result
-      redirect_to result_omikuji_path
+      redirect_to root_path
     else
-      fortune = OmikujiService.draw  # 確率抽選
+      fortunes = Fortune.all
+      pool = fortunes.flat_map { |f| [f] * f.probability }
+      fortune = pool.sample
 
-      current_user.omikuji_results.create!(  # DB保存
+      omikuji_result = current_user.omikuji_results.create!(
         fortune: fortune
       )
+
+      tasks = Task.order("RANDOM()").limit(1)
+
+      tasks.each do |task|
+        TaskCompletion.create!(
+          task: task,
+          omikuji_result: omikuji_result,
+          completed: false
+        )
+      end
 
       redirect_to result_omikuji_path
     end
@@ -21,6 +33,7 @@ class OmikujisController < ApplicationController
 
   def result
     @result = current_user.omikuji_results
+                          .includes(task_completions: :task, fortune: [])
                           .where(created_at: Time.zone.today.all_day)
                           .first
 
@@ -31,6 +44,7 @@ class OmikujisController < ApplicationController
 
   def history
     @results = current_user.omikuji_results
+                           .includes(:fortune)  # N+1問題
                            .order(created_at: :desc)
   end
 end

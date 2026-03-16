@@ -1,7 +1,10 @@
-<h1 class="page-title">神籤の履歴</h1>
+
 
 <div class="page-container history-page">
   <% if @results.any? %>
+
+  <h3 class="page-title">神籤の履歴</h3>
+
     <% @results.each do |result| %>
 
       <div class="history-card">
@@ -9,17 +12,49 @@
         <div class="history-row">
 
           <div class="history-image">
-            <%= image_tag result.image, width: 90 %>
+            <%= image_tag result.fortune.image, width: 90 %>
           </div>
 
           <div class="history-info">
+
             <div class="history-date">
               <%= result.created_at.strftime("%m月%d日") %>
             </div>
 
             <div class="history-result">
-              <%= result.result %>
+              <%= result.fortune.name %>
             </div>
+
+            <div class="history-tasks">
+
+              <% result.task_completions.each do |tc| %>
+
+                <div class="history-task">
+
+                  <span class="task-title">
+                    <%= tc.task.title %>
+                  </span>
+
+                  <% if tc.completed %>
+
+                    <span class="task-done">
+                      🔴 達成！
+                    </span>
+
+                  <% else %>
+
+                    <span class="task-undone">
+                      ✘ 未達成
+                    </span>
+
+                  <% end %>
+
+                </div>
+
+              <% end %>
+
+            </div>
+
           </div>
 
         </div>
@@ -27,11 +62,14 @@
       </div>
 
     <% end %>
+
   <% else %>
+
     <p class="no-history">まだ履歴がありません</p>
+
   <% end %>
 </div>
 
 <div class="history-back">
-  <%= link_to "トップページへ", root_path, class: "btn btn-primary" %>
+  <%= link_to "ホームへ戻る", home_path, class: "btn btn-secondary" %>
 </div>

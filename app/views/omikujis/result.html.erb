@@ -25,6 +25,15 @@
                   id: "omikuji-image",
                   class: "character-image" %>
 
+    <h2>今日のミッション</h2>
+
+    <% @result.task_completions.each do |tc| %>
+      <div class="task">
+        <p><strong><%= tc.task.title %></strong></p>
+        <p><%= tc.task.content %></p>
+      </div>
+    <% end %>
+
     <p style="text-align:center; margin-top:1.5rem; color:#700;">
     ※ 神籤は1日1回のみ引くことができます
     </p>
@@ -32,7 +41,7 @@
   </div>
 
   <div class="result-buttons" style="display:none;">
-    <%= link_to "トップページへ", root_path, class: "btn btn-primary" %>
+    <%= link_to "ホームへ戻る", home_path, class: "btn btn-secondary" %>
   </div>
   
 <% else %>
@@ -42,7 +51,7 @@
       本日はまだ神籤を引いていません。
     </p>
 
-    <%= link_to "トップページへ", root_path, class: "btn btn-secondary" %>
+    <%= link_to "ホームへ戻る", root_path, class: "btn btn-secondary" %>
   </div>
 
 <% end %>

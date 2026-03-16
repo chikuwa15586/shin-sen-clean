@@ -3,14 +3,14 @@
 ========================= */
 
 .main-card {
-  max-width: 460px;
-  margin: 6rem auto;
-  margin-top: 18rem;
-  padding: 3rem;
+  max-width: 420px;
+  margin: 4rem auto 2rem;
+  margin-top: 2rem;
+  padding: 2.5rem;
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(6px);
   border-radius: 24px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
   text-align: center;
 }
 
@@ -31,6 +31,19 @@
   background: transparent;
 }
 
+.fortune-title{
+  font-size:2.2rem;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.mission-title{
+  font-size:1.6rem;
+  font-weight:bold;
+  margin-top:20px;
+  margin-bottom:12px;
+}
+
 .result-page {
   background: transparent;
   box-shadow: none;
@@ -42,6 +55,52 @@
 .result-buttons {
   text-align: center;
   margin: 2rem 0;
+}
+
+.home-actions{
+  text-align:center;
+  margin-top:20px;
+}
+
+.home-actions .btn{
+  padding:10px 18px;
+}
+
+.drawn-text{
+  text-align:center;
+  font-size:1.8rem;
+  font-weight:600;
+  margin-top:20px;
+  color:#5a3d1a;
+}
+
+.history-button{
+  text-align:center;
+  margin-top:16px;
+}
+
+.mission-box{
+  background:#f7f3ea;
+  border-radius:12px;
+  padding:16px;
+  margin-top:12px;
+  text-align:left;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+  border-left:6px solid #c8a96b;
+}
+
+.task-title{
+  font-size:1.5rem;
+  font-weight:600;
+  margin-top:4px;
+}
+
+.task-content{
+  font-size:1.4rem;
+  color:#555;
+  margin-top:4px;
 }
 
 /* =========================

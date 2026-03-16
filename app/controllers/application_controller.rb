@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :container_class
 
+  def after_sign_in_path_for(resource)
+    home_path
+  end
+  
   def container_class
     # 神籤result画面だけ囲わない
     if controller_name == "omikuji" && action_name == "result"
