@@ -1,0 +1,46 @@
+<div class="stats-wrapper">
+
+  <div class="stats-card">
+    <h1>実績データ</h1>
+    <p>神籤回数：<%= @total_draws %> 回</p>
+
+    <p>タスク達成率：<%= @achievement_rate %>%</p>
+
+    <p>レア取得回数：</p>
+    <ul>
+      <% @fortune_counts.each do |(name, rarity), count| %>
+        <div class="fortune-item <%= rarity %>">
+          <span class="fortune-name"><%= name %></span>
+          <span class="fortune-count"><%= count %>回</span>
+        </div>
+      <% end %>
+    </ul>
+
+    <div class="stats-message-box">
+      <p class="stats-message">
+        <% if @achievement_rate == 100 %>
+          パーフェクト!!素晴らしい👏
+        <% elsif @achievement_rate > 75 %>
+          すごい！成果がでていますね✌
+        <% elsif @achievement_rate > 50 %>
+          半分超えた！この調子でいこう😃
+        <% elsif @achievement_rate > 35 %>
+          まだまだ挽回できます！👊
+        <% else %>
+          明日はもう少し頑張ろう😢
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <div class="history-back">
+
+  <%= link_to "ホームへ戻る",
+      home_path,
+      class: "btn btn-secondary" %>
+
+  <%= link_to "神籤履歴",
+      history_omikuji_path,
+      class: "btn btn-secondary draw-button" %>
+
+</div>

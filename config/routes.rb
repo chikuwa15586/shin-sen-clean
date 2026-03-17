@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "static_pages#top"
 
   get "home", to: "home#index"
+  get "users/stats", to: "users#stats"
 
   resource :omikuji, only: [] do
     post :draw
