@@ -82,6 +82,7 @@
   }
 
   .history-back .btn {
-    width: 30%;
+    width: 80%;
+    max-width: 250px;
   }
 }

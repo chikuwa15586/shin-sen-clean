@@ -3,8 +3,9 @@
 ========================= */
 
 .main-card {
+  width:100%;
   max-width: 420px;
-  margin: 4rem auto 2rem;
+  margin: 3rem auto;
   margin-top: 2rem;
   padding: 2.5rem;
   background: rgba(255,255,255,0.85);
@@ -37,11 +38,30 @@
   margin-bottom:10px;
 }
 
+
+
+.mission-card{
+  width:100%;
+  max-width:420px;
+  margin:16px auto;
+  padding:18px;
+  background: rgba(255,255,255,0.9);
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  text-align:left;
+}
+
 .mission-title{
   font-size:1.6rem;
   font-weight:bold;
   margin-top:20px;
   margin-bottom:12px;
+}
+
+.mission-content{
+  font-size:1.1rem;
+  color:#444;
+  line-height:1.5;
 }
 
 .result-page {
@@ -79,26 +99,52 @@
   margin-top:16px;
 }
 
-.mission-box{
-  background:#f7f3ea;
-  border-radius:12px;
+/* ===== タスクカードUI ===== */
+.task-card{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+
   padding:16px;
   margin-top:12px;
+
+  background:#f9f9f9;
+  border-radius:14px;
+
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.task-card:hover{
+  background:#f0f0f0;
+}
+
+.task-text{
   text-align:left;
+}
 
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+.task-checkbox{
+  transform: scale(2.0);
+  margin-top:4px;
+}
 
-  border-left:6px solid #c8a96b;
+.task-checkbox:checked + .task-text{
+  opacity:0.5;
+  text-decoration: line-through;
+}
+
+.task-card:has(.task-checkbox:checked){
+  background:#e8f5e9;
 }
 
 .task-title{
-  font-size:1.5rem;
+  font-size:1.2rem;
   font-weight:600;
   margin-top:4px;
 }
 
 .task-content{
-  font-size:1.4rem;
+  font-size:1rem;
   color:#555;
   margin-top:4px;
 }
@@ -115,11 +161,9 @@
   width:100%;
   max-width:420px;
   padding:24px;
-
   background: rgba(255,255,255,0.9);
   border-radius:16px;
   box-shadow:0 15px 40px rgba(0,0,0,0.15);
-
   text-align:center;
 }
 
@@ -127,10 +171,8 @@
   max-width:420px;
   margin:20px auto;
   padding:16px;
-
   background:#f6f8d8ff;
   border-left:5px solid #eef774ff;
-
   border-radius:10px;
   text-align:center;
 }
@@ -145,7 +187,7 @@
 ========================= */
 
 .omikuji-card {
-  margin-top: 20rem;
+  margin-top: 4rem;
   font-size: 1.3rem;
   width: auto;
   padding: 1.4rem 3rem;
@@ -170,18 +212,13 @@
 .rarity-message {
   position: relative;
   z-index: 2;
-
   margin: 1rem 0 1.8rem;
-
-  font-size: 2.0rem;   /* 少し大きめ */
-  font-weight: 1000;     /* 少し太め */
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: 1000;
   letter-spacing: 0.05em;
   line-height: 1.6;
-
   text-align: center;
-  color: #b64ffaff;       /* ベース色（後でレア度で上書き） */
-
-  /* やわらかい光 */
+  color: #b64ffaff;
   text-shadow:
     0 0 6px rgba(255,255,255,0.6),
     0 0 12px rgba(255, 255, 255, 0.4);
@@ -276,7 +313,7 @@
   }
 
   .omikuji-card {
-    margin-top: 13rem;
+    margin-top: 2rem;
   }
 
   .main-card h1 {

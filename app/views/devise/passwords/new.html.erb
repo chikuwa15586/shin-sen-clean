@@ -1,0 +1,30 @@
+<div class="page-container">
+
+  <div class="auth-page">
+
+    <div class="auth-card">
+
+      <h2 class="auth-title">パスワード再設定</h2>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email, class: "input-field" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "送信", class: "btn btn-japanese" %>
+        </div>
+
+      <% end %>
+
+      <div class="auth-links">
+        <%= render "devise/shared/links" %>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <!-- CSS -->
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload", nonce: SecureRandom.hex(4) %>
     <%= stylesheet_link_tag "omikuji", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "history", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "animation", "data-turbo-track": "reload" %>
@@ -27,7 +27,7 @@
 
   <body>
 
-    <!-- 🔱 ナビゲーションバー -->
+    <!-- ナビゲーションバー -->
     <nav class="navbar">
       <div class="nav-inner">
         <%= link_to "神籤 -SHIN-SEN-", home_path, class: "nav-logo" %>
@@ -55,6 +55,12 @@
         </div>
       </div>
     </nav>
+
+    <% flash.each do |type, message| %>
+      <div class="flash flash-<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
 
     <!-- 🌌 メインコンテンツ -->
       <%= yield %>

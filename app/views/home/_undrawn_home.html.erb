@@ -2,23 +2,23 @@
   <h1>神籤 -SHIN-SEN-</h1>
   
   <p class="home-description">
-    毎日1回、神籤を引くことができます。
+    毎日1回だけ神籤を引くことができます。
   </p>
 
   <%= button_to "神籤を引く",
       draw_omikuji_path,
       method: :post,
-      class: "btn btn-primary draw-button" %>
+      class: "btn btn-puffy draw-button" %>
 </div>
 
 <div class="home-actions">
 
   <%= link_to "神籤履歴",
       history_omikuji_path,
-      class: "btn btn-secondary draw-button" %>
+      class: "btn btn-rare draw-button" %>
 
   <%= link_to "実績データ",
       users_stats_path,
-      class: "btn btn-secondary" %>
+      class: "btn btn-rare" %>
 
 </div>
