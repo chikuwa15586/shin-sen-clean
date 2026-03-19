@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "home", to: "home#index"
   get "users/stats", to: "users#stats"
 
-  resources :omikuji, only: [] do
+  resources :omikujis, only: [] do
     collection do
       post :draw
       get :result
