@@ -1,4 +1,4 @@
-class OmikujisController < ApplicationController
+class OmikujiController < ApplicationController
   before_action :authenticate_user!
 
   def draw
