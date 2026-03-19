@@ -6,16 +6,15 @@
   </p>
 
   <%= button_to "神籤を引く",
-      draw_omikuji_path,
+      draw_omikujis_path,
       method: :post,
-      data: { turbo: false },
       class: "btn btn-puffy draw-button" %>
 </div>
 
 <div class="home-actions">
 
   <%= link_to "神籤履歴",
-      history_omikuji_path,
+      history_omikujis_path,
       class: "btn btn-rare draw-button" %>
 
   <%= link_to "実績データ",
