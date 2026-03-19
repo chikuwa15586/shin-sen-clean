@@ -8,6 +8,7 @@
   <%= button_to "神籤を引く",
       draw_omikujis_path,
       method: :post,
+      data: { turbo: false },
       class: "btn btn-puffy draw-button" %>
 </div>
 
