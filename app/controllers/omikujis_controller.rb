@@ -19,13 +19,11 @@ class OmikujisController < ApplicationController
 
       task = Task.order("RANDOM()").first
 
-      tasks.each do |task|
-        TaskCompletion.create!(
-          task: task,
-          omikuji_result: omikuji_result,
-          completed: false
-        )
-      end
+      TaskCompletion.create!(
+        task: task,
+        omikuji_result: omikuji_result,
+        completed: false
+      )
 
       redirect_to result_omikuji_path
     end
