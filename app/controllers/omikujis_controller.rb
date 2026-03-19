@@ -25,7 +25,7 @@ class OmikujisController < ApplicationController
         completed: false
       )
 
-      redirect_to result_omikuji_path
+      redirect_to result_omikujis_path
     end
   end
 
