@@ -71,9 +71,52 @@
     padding: 1rem;
   }
 
+  .history-card {
+    width: 92%;
+    max-width: none;
+    margin: 1rem auto;
+    padding: 12px;
+  }
+
+  .history-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .history-image img {
+    width: 70px;
+    height: auto;
+  }
+
+  .history-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .history-task .task-title {
+    display: block;
+    font-size: 1.0rem;
+    line-height: 1.4;
+    word-break: break-word; /* 長文対応 */
+  }
+
+  .task-done,
+  .task-undone {
+    font-size: 1.0rem;
+    margin-left: 4px;
+  }
+
   .history-page {
     padding: 2rem 1rem;
     overflow-y: auto;
+  }
+
+  .history-info {
+    display: flex;
+    font-size:1.0rem;
+    flex-direction: column;
+    gap: 0.4rem;
   }
 
   .history-back {
@@ -82,7 +125,33 @@
   }
 
   .history-back .btn {
-    width: 80%;
+    width: 40%;
     max-width: 250px;
   }
+  
+  .stats-card {
+    margin: 2rem auto;
+    width: 70%;
+    max-width: 400px;
+    padding: 1rem;
+  }
+
+  .stats-card h1 {
+    font-size: 24px;
+  }
+
+  .stats-card p {
+    font-size: 14px;
+  }
+
+  .stats-message-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 1rem;
+  }
+
+  .stats-message-box p {
+    font-size: 12px;
+  }
+
 }

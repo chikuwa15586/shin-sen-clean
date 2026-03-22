@@ -214,7 +214,6 @@ body::before {
   box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
-/* deviseリンクを見やすく */
 .page-container a {
   color: #333;
   font-weight: 500;
@@ -335,4 +334,131 @@ body::before {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 15px;
+}
+
+/* =========================
+   レスポンシブデザイン
+========================= */
+@media (max-width: 768px) {
+
+  .top-card {
+    width: 70%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .top-card p {
+    font-size: 15px;
+  }
+
+  .top-container h1 {
+    font-size: 24px;
+    margin-top: 2rem;
+    line-height: 1.4;
+  }
+
+  .home-description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 15px 0;
+  }
+
+  .btn {
+    margin: 5px 0;
+  }
+
+  .page-container {
+    width: 70%;
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: rgba(240, 240, 240, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  }
+
+  .page-container a {
+    color: #333;
+    font-weight: 500;
+  }
+
+  .page-container h2 {
+    text-align: center;
+  }
+
+  .auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 2rem;
+    border-radius: 16px;
+    background: #fff8f0;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+
+  .auth-card form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 入力欄 */
+  .auth-card .field {
+    margin-bottom: 1rem;
+  }
+
+  .auth-card input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  /* ボタン中央 */
+  .auth-card .actions {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* 各フィールドを中央に */
+  .field {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ラベル */
+  .field label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  /* 入力欄 */
+  .input-field {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* チェックボックス */
+  .remember-field {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+  }
+
+  /* ボタン */
+  .actions {
+    width: 100%;
+    max-width: 300px;
+  }
+
 }

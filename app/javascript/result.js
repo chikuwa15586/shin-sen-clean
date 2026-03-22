@@ -2,6 +2,7 @@ document.addEventListener("turbo:load", function() {
 
   const card = document.getElementById("omikuji-card");
   const resultDiv = document.getElementById("omikuji-result");
+  const wrapper = document.querySelector(".card-wrapper");
 
   if (!card || !resultDiv) return;
 
@@ -10,6 +11,11 @@ document.addEventListener("turbo:load", function() {
   card.onclick = null; // ← 初期化
 
   card.addEventListener("click", () => {
+
+    const wrapper = document.querySelector(".card-wrapper");
+    if (wrapper) {
+      wrapper.classList.remove("draw-state");
+    }
 
     card.style.display = "none";
     resultDiv.style.display = "block";
@@ -64,12 +70,12 @@ document.addEventListener("turbo:load", function() {
 
 });
 
-
-// Turboキャッシュ対策（← これは外に書く）
+// Turboキャッシュ対策
 document.addEventListener("turbo:before-cache", () => {
 
   const resultDiv = document.getElementById("omikuji-result");
   const card = document.getElementById("omikuji-card");
+  const wrapper = document.querySelector(".card-wrapper");
 
   if (!resultDiv || !card) return;
 
@@ -84,5 +90,9 @@ document.addEventListener("turbo:before-cache", () => {
 
   resultDiv.style.display = "none";
   card.style.display = "block";
+
+  if (wrapper) {
+    wrapper.classList.add("draw-state");
+  }
 
 });
