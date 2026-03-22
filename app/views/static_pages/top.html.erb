@@ -19,18 +19,18 @@
     <% if user_signed_in? %>
 
       <%= button_to "神籤を引く",
-          draw_omikuji_path,
-          method: :post, class: "btn btn-primary" %>
+          draw_omikujis_path,
+          method: :post, class: "btn btn-puffy" %>
 
     <% else %>
 
       <%= link_to "ログイン",
           new_user_session_path,
-          class: "btn btn-primary" %>
+          class: "btn btn-puffy" %>
 
       <%= link_to "新規登録",
           new_user_registration_path,
-          class: "btn btn-secondary" %>
+          class: "btn btn-glossy" %>
 
     <% end %>
 

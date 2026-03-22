@@ -1,0 +1,16 @@
+ja:
+  devise:
+    sessions:
+      signed_in: "ログインしました"
+      signed_out: "ログアウトしました"
+    registrations:
+      signed_up: "アカウント登録が完了しました"
+    passwords:
+      send_instructions: "パスワード再設定のメールを送信しました"
+    shared:
+      links:
+        sign_in: "ログイン"
+        sign_up: "新規登録"
+        forgot_your_password: "パスワードをお忘れですか？"
+        didn't_receive_confirmation_instructions: "確認メールが届かない場合"
+        didn't_receive_unlock_instructions: "ロック解除メールが届かない場合"

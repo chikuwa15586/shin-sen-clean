@@ -2,14 +2,17 @@
   今日の運勢を授かりました
 </p>
 
-<div class="main-card">
+<div class="main-card drawn-card">
 
   <h3 class="fortune-title">～神籤の結果～</h3>
+
+  <p class="rarity-message">
+    <%= @today_result.fortune.message %>
+  </p>
 
   <div class="fortune-image">
     <%= image_tag @today_result.fortune.image, width: 200 %>
   </div>
-
 
   <h3 class="mission-title">🌠星の導き -今日のタスク-</h3>
 
@@ -22,17 +25,18 @@
           method: :patch,
           local: true do |f| %>
 
-        <%= f.check_box :completed,
-            checked: tc.completed,
-            onchange: "this.form.submit();" %>
+        <lavel class="task-card">
+          <%= f.check_box :completed,
+              checked: tc.completed,
+              onchange: "this.form.submit();",
+              class: "task-checkbox" %>
 
-        <span class="task-title">
-          <%= tc.task.title %>
-        </span>
+          <div class="task-text">
+            <span class="task-title"><%= tc.task.title %></span>
+            <p class="task-content"><%= tc.task.content %></p>
+          </div>
 
-        <p class="task-content">
-          <%= tc.task.content %>
-        </p>
+        </div>
 
       <% end %>
 
@@ -44,11 +48,11 @@
 
 <div class="history-button">
   <%= link_to "神籤履歴",
-      history_omikuji_path,
-      class: "btn btn-secondary" %>
+      history_omikujis_path,
+      class: "btn btn-rare" %>
 
   <%= link_to "実績データ",
       users_stats_path,
-      class: "btn btn-secondary" %>
+      class: "btn btn-rare" %>
 
 </div>

@@ -19,15 +19,15 @@
     <div class="stats-message-box">
       <p class="stats-message">
         <% if @achievement_rate == 100 %>
-          パーフェクト!!素晴らしい👏
+          完璧です!パーフェクト!!👏
         <% elsif @achievement_rate > 75 %>
-          すごい！成果がでていますね✌
+          波に乗っていますね♪ 素晴らしい!✌
         <% elsif @achievement_rate > 50 %>
-          半分超えた！この調子でいこう😃
-        <% elsif @achievement_rate > 35 %>
-          まだまだ挽回できます！👊
+          良い調子です!成果が出ていますね😃
+        <% elsif @achievement_rate > 1 %>
+          挽回できます!頑張ろう!👊
         <% else %>
-          明日はもう少し頑張ろう😢
+          実績がまだありません😢
         <% end %>
       </p>
     </div>
@@ -37,10 +37,10 @@
 
   <%= link_to "ホームへ戻る",
       home_path,
-      class: "btn btn-secondary" %>
+      class: "btn btn-japanese" %>
 
   <%= link_to "神籤履歴",
-      history_omikuji_path,
-      class: "btn btn-secondary draw-button" %>
+      history_omikujis_path,
+      class: "btn btn-rare draw-button" %>
 
 </div>

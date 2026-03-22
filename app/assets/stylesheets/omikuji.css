@@ -3,45 +3,101 @@
 ========================= */
 
 .main-card {
+  width:100%;
   max-width: 420px;
-  margin: 4rem auto 2rem;
-  margin-top: 2rem;
-  padding: 2.5rem;
+  margin: 1rem auto;
+  padding: 1.5rem;
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(6px);
   border-radius: 24px;
   box-shadow: 0 25px 60px rgba(0,0,0,0.25);
   text-align: center;
+  box-sizing: border-box;
 }
 
-.card-wrapper {
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 13rem;
+  gap: 1.5rem; /* カードとボタンの間隔 */
+}
+
+/* 抽選済みホーム */
+.drawn-card {
+  margin: 3rem auto;
+}
+
+.drawn-text{
+  text-align:center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 3rem;
+  color:#5a3d1a;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.draw-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.result-card {
   width: 100%;
-  margin: 2rem 0;
+  max-width: 420px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .fortune-result {
-  position: relative;
-  text-align: center;
-  margin-top: 2rem;
-  min-height: 60vh;
-  transition: background 1s ease;
-  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .fortune-title{
-  font-size:2.2rem;
-  font-weight:bold;
-  margin-bottom:10px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.mission-card{
+  width: 100%;
+  max-width: 420px;
+  margin: 16px auto;
+  padding: 18px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  text-align: left;
 }
 
 .mission-title{
-  font-size:1.6rem;
-  font-weight:bold;
-  margin-top:20px;
-  margin-bottom:12px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.mission-content{
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.5;
 }
 
 .result-page {
@@ -59,93 +115,107 @@
 
 .home-actions{
   text-align:center;
-  margin-top:20px;
+  margin-top: 20px;
 }
 
 .home-actions .btn{
-  padding:10px 18px;
-}
-
-.drawn-text{
-  text-align:center;
-  font-size:1.8rem;
-  font-weight:600;
-  margin-top:20px;
-  color:#5a3d1a;
+  padding: 10px 18px;
 }
 
 .history-button{
-  text-align:center;
-  margin-top:16px;
+  text-align: center;
+  margin-top: 16px;
 }
 
-.mission-box{
-  background:#f7f3ea;
-  border-radius:12px;
-  padding:16px;
-  margin-top:12px;
-  text-align:left;
+/* ===== タスクカードUI ===== */
+.task-card{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  padding: 16px;
+  margin-top: 12px;
 
-  border-left:6px solid #c8a96b;
+  background:#f9f9f9;
+  border-radius: 14px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.task-card:hover{
+  background: #f0f0f0;
+}
+
+.task-text{
+  text-align: left;
+}
+
+.task-checkbox{
+  transform: scale(2.0);
+  margin-top: 4px;
+}
+
+.task-checkbox:checked + .task-text{
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.task-card:has(.task-checkbox:checked){
+  background: #e8f5e9;
 }
 
 .task-title{
-  font-size:1.5rem;
-  font-weight:600;
-  margin-top:4px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 .task-content{
-  font-size:1.4rem;
-  color:#555;
-  margin-top:4px;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 4px;
 }
 
 .stats-wrapper{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-top:40px;
-  gap:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 20px;
 }
 
 .stats-card{
-  width:100%;
-  max-width:420px;
-  padding:24px;
-
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
   background: rgba(255,255,255,0.9);
-  border-radius:16px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
-
-  text-align:center;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  text-align: center;
 }
 
 .stats-message-box{
-  max-width:420px;
-  margin:20px auto;
-  padding:16px;
-
-  background:#f6f8d8ff;
-  border-left:5px solid #eef774ff;
-
-  border-radius:10px;
-  text-align:center;
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 16px;
+  background: #f6f8d8ff;
+  border-left: 5px solid #eef774ff;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .stats-message{
-  margin:0;
-  font-weight:bold;
-  color:#2c3e50;
+  margin: 0;
+  font-weight: bold;
+  color: #2c3e50;
 }
 /* =========================
    コンポーネント
 ========================= */
 
 .omikuji-card {
-  margin-top: 20rem;
+  margin-top: 4rem;
   font-size: 1.3rem;
   width: auto;
   padding: 1.4rem 3rem;
@@ -170,18 +240,13 @@
 .rarity-message {
   position: relative;
   z-index: 2;
-
   margin: 1rem 0 1.8rem;
-
-  font-size: 2.0rem;   /* 少し大きめ */
-  font-weight: 1000;     /* 少し太め */
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: 1000;
   letter-spacing: 0.05em;
   line-height: 1.6;
-
   text-align: center;
-  color: #b64ffaff;       /* ベース色（後でレア度で上書き） */
-
-  /* やわらかい光 */
+  color: #b64ffaff;
   text-shadow:
     0 0 6px rgba(255,255,255,0.6),
     0 0 12px rgba(255, 255, 255, 0.4);
@@ -195,8 +260,11 @@
 }
 
 .character-image {
-  max-width: 380px;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
   opacity: 0;
+  justify-content: center;
   transform: scale(0.6);
   position: relative;
   z-index: 2;
@@ -211,8 +279,9 @@
 }
 
 .notice-text {
+  font-size: clamp(12px, 3vw, 16px);
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1.rem;
   color: rgba(8, 0, 0, 1);
 }
 
@@ -266,25 +335,54 @@
   .page-title {
     font-size: 2rem;
   }
-
-  .main-card {
-    width: 70%;
-    margin: 2rem auto;
-    margin-top: 13rem;
-    padding: 1rem;
-    border-radius: 18px;
+  
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8rem;
+    gap: 1.0rem; /* カードとボタンの間隔 */
   }
 
   .omikuji-card {
-    margin-top: 13rem;
+    margin-top: 2rem;
+  }
+
+  .drawn-text {
+    font-size: 1.2rem;
+    padding: 20px;
+    margin: 1rem;
+  }
+  
+  .main-card {
+    width: 90%;
+    max-width: 350px;
+    margin: 5px auto;
+    padding: 20px;
+    border-radius: 20px;
   }
 
   .main-card h1 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  .main-card h3 {
+    font-size: 20px;
+    line-height: 1.4;
   }
 
   .main-card p {
-    font-size: 0.85rem;
+    font-size: 0.80rem;
+  }
+
+  .result-container {
+    padding: 10px 0;
+  }
+
+  .result-card {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   .fortune-result {
@@ -294,9 +392,9 @@
   }
 
   .fortune-result h1 {
-    margin-top: 0rem;
-    margin-bottom:0.3rem;
-    font-size: 1.4rem;
+    font-size: clamp(18px, 5vw, 24px);
+    text-align: center;
+    margin: 20px 0 10px;
   }
 
   .fortune-text {
@@ -304,18 +402,28 @@
   }
 
   .rarity-message {
-    font-size: 1.2rem;
+    font-size: clamp(14px, 4vw, 18px);
+    text-align: center;
     margin-top: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 15px;
     text-shadow:
     0 0 6px rgba(255,255,255,0.6),
     0 0 12px rgba(255, 255, 255, 0.4);
   }
 
   .character-image {
-    width: 100%;
-    max-height: 38vh;
+    width: 80%;
+    max-width: 220px;
+    margin: 0 auto;
+    display: block;
     object-fit: contain;
+  }
+
+  .notice-text {
+    font-size: clamp(16px, 3.5vw, 20px);
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgba(14, 13, 13, 1);
   }
 
 }

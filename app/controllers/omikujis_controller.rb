@@ -4,30 +4,28 @@ class OmikujisController < ApplicationController
   def draw
     today_result = current_user.omikuji_results
                                .where(created_at: Time.zone.today.all_day)
-                               .first
+                               .first   
 
     if today_result
       redirect_to root_path
     else
-      fortunes = Fortune.all
-      pool = fortunes.flat_map { |f| [f] * f.probability }
-      fortune = pool.sample
+      valid_fortunes = Fortune.where("probability > 0")
+      pool = valid_fortunes.flat_map { |f| [f] * f.probability }
+      fortune = pool.sample || valid_fortunes.first
 
       omikuji_result = current_user.omikuji_results.create!(
         fortune: fortune
       )
 
-      tasks = Task.order("RANDOM()").limit(1)
+      task = Task.order("RANDOM()").first
 
-      tasks.each do |task|
-        TaskCompletion.create!(
-          task: task,
-          omikuji_result: omikuji_result,
-          completed: false
-        )
-      end
+      TaskCompletion.create!(
+        task: task,
+        omikuji_result: omikuji_result,
+        completed: false
+      )
 
-      redirect_to result_omikuji_path
+      redirect_to result_omikujis_path
     end
   end
 
